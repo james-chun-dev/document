@@ -22,6 +22,11 @@ $ pod lib create pod_name
 
 build, pod, license, platform 뱃지 모두 아직 배포가 안되어서 not found 상태이다.
 
+* build : travis 같은 ci 툴과 연동해서 url 를 넣어주면 passing 으로 바뀐다.
+* pod : 이건 public 배포후 나오는 pod repo 주소를 넣어주면 버전명이 표기된다.(뱃지 url은 README.md 참고)
+* license : 마찬가지 배포시 포함되는 라이센스파일 주소를 넣어주면 된다.
+* platform : 배포시 제공하는 플랫폼이 표기된다.(뱃지 url은 README.md 참고)
+
 
 
 
