@@ -20,7 +20,7 @@ $ pod lib create pod_name
 
 라이브러리 생성시 같이 생성되는 readme 파일을 열었을때 화면이다.
 
-build, pod, license, platform 뱃지 모두 아직 배포가 안되어서 not found 상태이다.(아래서 이어서 설명하겠음)
+build, pod, license, platform 뱃지 모두 아직 배포가 안되어서 not found 상태이다.
 
 
 
@@ -256,3 +256,37 @@ $ pod spec lint
 git 주소가 private 라 찾을수 없단다. jcenter 처럼 404 났겠지...
 
 원리를 알기에 안될걸 알면서도 확인해보고 싶었다.
+
+
+
+## Podfile 전체내용
+
+```
+source 'https://github.com/james-chun-dev/specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '14.3'
+
+workspace 'frameworkProj'
+project 'frameworkTEST/frameworkTEST.xcodeproj'
+project 'frameworkTESTAPP/frameworkTESTAPP.xcodeproj'
+
+target 'frameworkTEST' do
+
+	project 'frameworkTEST/frameworkTEST.xcodeproj'
+	pod 'AFNetworking', '~> 3.0'
+	pod 'PopupDialog', '~> 1.1'
+
+end
+
+target 'frameworkTESTAPP' do
+
+	project 'frameworkTESTAPP/frameworkTESTAPP.xcodeproj'
+	pod 'MBProgressHUD', '~> 1.2.0'
+	pod 'git-public-pod-public', '~> 0.1'
+	pod 'git-private-pod-private'
+end
+```
+
+![test](https://user-images.githubusercontent.com/20632507/104257054-e0af3e80-54bf-11eb-8ffb-6c214d7448e8.png)
+
+테스트해보았더니 문제없이 받아진다.
