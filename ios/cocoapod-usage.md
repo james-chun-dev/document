@@ -32,6 +32,36 @@ CocoaPods를 설치하는 방법은 다음과 같다.
    $ pod update
    ```
 
+5. pod private repo 목록
+
+   ```
+   $ pod repo list
+   ```
+
+6. pod private repo 삭제
+
+   ```
+   $ pod repo remove sdk_name
+   ```
+
+7. cocoapods 모든 파일 삭제
+
+   ```
+   $ rm -rf ~/.cocoapods
+   ```
+
+8. 삭제후 초기화
+
+   ```
+   $ pod setup
+   ```
+
+9. spec 파일 유효성 검사
+
+   ```
+   $ pod spec lint --verbose specfilename.podspec
+   ```
+
    
 
 ## Podfiles 파일 설정
