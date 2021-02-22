@@ -1,68 +1,96 @@
 ## Cocoapod 설치
 
-CocoaPods를 설치하는 방법은 다음과 같다. 
+macOS 에는 Ruby 가 기본 내장되어 있다. 다음 명령어면 설치가 완료된다.
 
-1. macOS 에는 Ruby 가 기본 내장되어 있다. 다음 명령어면 설치가 완료된다.
+```
+$ sudo gem install cocoapods
+```
 
-   ```
-   $ sudo gem install cocoapods
-   ```
+## Cocoapod 명령어
 
-2. 생성 명령어
+### pod init
 
-   새로운 pod 파일을 생성해준다.
+새로운 pod 파일을 생성해준다.
 
-   ```
-   $ pod init
-   ```
+```
+$ pod init
+```
 
-3. 인스톨 명령어
+### pod install
 
-   셋팅되어 있는 pod 파일이 있다면 해당경로에서 이 명령어만 쳐주면 알아서 라이브러리를 인스톨해준다.
+pod을 프로젝트에 세팅하기 위하여 맨 처음에 사용됩니다. 하지만 Podfile의 pod을 **추가, 수정, 삭제**할 때에도 사용됩니다.
 
-   (만약 빌드시 의존도에 문제가 생겼다면 pod파일을 제외한 pod 폴더 및 lock 파일을 삭제하고 이 명령어를 쳐준다면 해결될 수도 있다.)
+`pod install` 명령어를 실행하면 **새로운 pod을 다운받고 설치**합니다. 그리고 각 pod 마다 설치된 버전을 **Podfile.lock** 에 기록해 놓습니다. Podfile.lock은 설치된 pod들의 버전을 계속 추적하여 기록해놓고 유지시키는 역할을 합니다.
 
-   ```
-   $ pod install
-   ```
+`pod install` 을 실행하면,
 
-4. 업데이트
+Podfile.lock에 리스트된 팟들에 대해선 지정된 버전만 다운받습니다. 새로운 버전이 존재하는지 체크하지 않는 것이죠!
 
-   ```
-   $ pod update
-   ```
+Podfile.lock에 리스트되지 않은 팟들은 Podfile에 명시된 버전 조건으로 검색하여 다운로드 받습니다. (ex. pod 'MyPod', '~>1.2')
 
-5. pod private repo 목록
+```
+$ pod install
+```
 
-   ```
-   $ pod repo list
-   ```
+### pod update
 
-6. pod private repo 삭제
+`pod update {팟이름}` 을 실행시키면, 코코아팟은 해당 팟의 업데이트된 버전이 있는지 검색합니다. 
 
-   ```
-   $ pod repo remove sdk_name
-   ```
+Podfile.lock을 참조하지 않죠. 이 명령어는 팟을 **최신 버전으로 업데이트** 시켜주는 것입니다. (단, Podfile의 버전 조건과 일치해야 합니다.) 
 
-7. cocoapods 모든 파일 삭제
+단순하게 `pod update` 만 실행시키면 코코아팟은 모든 팟에 대해 가능한 최신 버전으로 업데이트를 실행합니다.
 
-   ```
-   $ rm -rf ~/.cocoapods
-   ```
+```
+$ pod update
+```
 
-8. 삭제후 초기화
+### pod outdated
 
-   ```
-   $ pod setup
-   ```
+pod outdated 를 실행하면, 코코아팟은 Podfile.lock에 리스트된 것보다 새로운 버전을 가진 모든 팟을 나열합니다. 
 
-9. spec 파일 유효성 검사
+이 팟들에 대해 pod update {팟이름} 을 실행한다면 업데이트가 될 것이라는 것을 의미합니다. (역시나 Podfile의 버전 조건과 부합하는 한!)
 
-   ```
-   $ pod spec lint --verbose specfilename.podspec
-   ```
+### pod repo update
 
-   
+`/Users/{사용자이름}/.cocoapods/repos` 에 있는 모든 podspec 파일을 업데이트 합니다. podspec 파일에는 해당 pod 의 주소 등 중요한 정보들이 담겨있습니다.
+
+``` 
+spec.source = { :git => 'https://github.com/Alamofire/Alamofire.git', :tag => 'v3.1.1' }
+```
+ 
+`~/.cocoapods/repos` 에는 모든 pod에 대해 가능한 버전들의 `podspec` 파일들이 모여있습니다. `pod repo update` 를 실행하게 되면 최신 `podspec` 파일들로 업데이트되게 되는 것입니다. 추가한 라이브러리에 대한 `podspec` 이 업데이트되지 않아 오류가 날 경우 이 명령어를 통하여 해결할 수 있습니다.
+
+### pod repo list
+
+```
+$ pod repo list
+```
+
+### pod repo remove
+
+```
+$ pod repo remove sdk_name
+```
+
+### cocoapods 모든 파일 삭제
+
+```
+$ rm -rf ~/.cocoapods
+```
+
+### 삭제후 초기화
+
+```
+$ pod setup
+```    
+
+### spec 파일 유효성 검사
+
+```
+$ pod spec lint --verbose specfilename.podspec
+```
+
+    
 
 ## Podfiles 파일 설정
 

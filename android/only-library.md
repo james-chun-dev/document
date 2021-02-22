@@ -36,7 +36,7 @@
 
 9. build.gradle 스크립트 수정
 
-   ```
+   ```groovy
    apply plugin: 'com.android.library'
    apply plugin: 'kotlin-android'
    apply plugin: 'kotlin-android-extensions'
