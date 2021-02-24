@@ -57,7 +57,7 @@ pod outdated 를 실행하면, 코코아팟은 Podfile.lock에 리스트된 것�
 ``` 
 spec.source = { :git => 'https://github.com/Alamofire/Alamofire.git', :tag => 'v3.1.1' }
 ```
- 
+
 `~/.cocoapods/repos` 에는 모든 pod에 대해 가능한 버전들의 `podspec` 파일들이 모여있습니다. `pod repo update` 를 실행하게 되면 최신 `podspec` 파일들로 업데이트되게 되는 것입니다. 추가한 라이브러리에 대한 `podspec` 이 업데이트되지 않아 오류가 날 경우 이 명령어를 통하여 해결할 수 있습니다.
 
 ### pod repo list
@@ -82,7 +82,7 @@ $ rm -rf ~/.cocoapods
 
 ```
 $ pod setup
-```    
+```
 
 ### spec 파일 유효성 검사
 
@@ -90,7 +90,13 @@ $ pod setup
 $ pod spec lint --verbose specfilename.podspec
 ```
 
-    
+### private cocoapod 배포
+
+```
+$ pod repo push git-repo-name specfilename.podspec
+```
+
+###     
 
 ## Podfiles 파일 설정
 
