@@ -20,7 +20,8 @@
 
 * [앱을 포함한 라이브러리 프로젝트 생성](https://github.com/jameschun7/document/blob/main/ios/app-with-framework.md)
 * [Cocoapod 사용법](https://github.com/jameschun7/document/blob/main/ios/cocoapod-usage.md)
-* [Cocoapod Upload](https://github.com/jameschun7/document/blob/main/ios/cocoapod-upload.md)
+* [Cocoapod 소스 공개(Public)용으로 프레임워크 배포하기](https://github.com/jameschun7/document/blob/main/ios/cocoapods-public.md)
+* [Cocoapod 소스 비공개(Private)용으로 프레임워크 배포하기](https://github.com/jameschun7/document/blob/main/ios/cocoapods-private.md)
 * [인앱결제 사용법](https://github.com/jameschun7/document/blob/main/ios/ios-inapp-purchase-usage.md)
 
 
