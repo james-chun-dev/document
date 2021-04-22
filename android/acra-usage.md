@@ -68,8 +68,10 @@ go install -v github.com/gen2brain/acra-go/acra-go
 터미널에서 명령어를 진행하면 `$GOPATH/bin/acra-go` 에 설치가 됩니다.
 (acra-go 가 사용하고 있는 써드파티 의존성 해결 필요.)
 
-* [go 개발환경 설정]()
-* [go mod 사용법]()
+* [go 개발환경 설정](https://github.com/jameschun7/document/blob/main/golang/golang-develop-env.md)
+* [go mod 사용법](https://github.com/jameschun7/document/blob/main/golang/golang-develop-env.md)
+
+go mod 사용법을 참고하여 프로젝트내에서 `go mod init` 명령어를 실행하면 vendor 파일 읽고 의존성 걸려 있는 모듈들을 모두 받는듯 하다. (패키지매니저 역할)
 
 ## 설정
 
