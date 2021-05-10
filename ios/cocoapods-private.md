@@ -116,3 +116,7 @@ end
 ![test](https://user-images.githubusercontent.com/20632507/104257054-e0af3e80-54bf-11eb-8ffb-6c214d7448e8.png)
 
 공개용과 비공개용 pod 테스트를 동시에 해보았더니 문제없이 받아진다.
+
+### Example Repository
+
+* https://github.com/jameschun7/cocoapod-google-firebase-dependency-solution.git
