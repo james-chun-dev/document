@@ -148,6 +148,37 @@ gradle uploadArchives
 
 약 2시간정도면 지라 대쉬보드쪽에 첫 배포에 대한 코멘트가 달릴 것이고 [maven 저장소](https://search.maven.org ) 에서 검색하면 배포한 라이브러리가 검색된다.
 
+![comment](https://user-images.githubusercontent.com/20632507/117634385-cfe6af00-b1b9-11eb-9299-546d0d82a00e.png)
 
 
 ## 사용
+
+* jcenter -> mavenCentral
+* maven url 변경
+
+```
+buildscript {    
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://repo1.maven.org/maven2/"
+        }
+    }
+    ...
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://repo1.maven.org/maven2/"
+        }
+    }
+}
+
+dependencies {
+    implementation 'io.github.jameschun7:universalsdk:0.2.4'    
+}
+```
