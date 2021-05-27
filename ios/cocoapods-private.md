@@ -60,7 +60,17 @@ $ pod spec lint --verbose specfilename.podspec
 pod repo 에 push
 
 ```
-pod repo push pub-sdk-ios specfilename.podspec
+$ pod repo push [폴더명] specfilename.podspec
+```
+
+
+
+### 팀 동료가 접근시
+
+다른 mac 에서 사용하려면 처음 만든 specs.git 저장소를 이용해서 로컬로 내려받아야 한다.
+
+```
+$ pod repo add [폴더명] https://github.com/jameschun7/specs.git
 ```
 
 

@@ -62,14 +62,46 @@ spec.source = { :git => 'https://github.com/Alamofire/Alamofire.git', :tag => 'v
 
 ### pod repo list
 
+pod repo 리스트를 출력해줍니다.
+
 ```
 $ pod repo list
 ```
 
 ### pod repo remove
 
+특정 repo(private) 를 삭제합니다.
+
 ```
 $ pod repo remove sdk_name
+```
+
+### pod spec lint
+
+podspec 정보에 대한 유효성을 검사합니다. (xcode 빌드가 이루어짐)
+
+```
+$ pod spec lint --verbose UniversalSDK.podspec
+```
+
+### pod repo push
+
+**pod spec lint** 에 성공했을 경우에만 사용가능하다.
+
+로컬에 pod repo 를 push 해주고 동시에 private spec git 저장소에도 push 한다.
+
+```
+$ pod repo push [폴더명] UniversalSDK.podspec
+```
+
+### pod repo add
+
+private repo 를 팀 동료에게 제공시 즉, 다른 mac 에서 private repo 를 접근시 사용해야 한다.
+
+private spec repo 를 git 을 통해 내려받는다.
+
+```
+$ pod repo add [폴더명] https://github.com/jameschun7/specs.git
 ```
 
 ### cocoapods 모든 파일 삭제
@@ -83,20 +115,6 @@ $ rm -rf ~/.cocoapods
 ```
 $ pod setup
 ```
-
-### spec 파일 유효성 검사
-
-```
-$ pod spec lint --verbose specfilename.podspec
-```
-
-### private cocoapod 배포
-
-```
-$ pod repo push git-repo-name specfilename.podspec
-```
-
-###     
 
 ## Podfiles 파일 설정
 
@@ -115,5 +133,4 @@ end
 * pod: 사용하는 오픈소스 라이브러리 이름. 특정 버전, 브랜치, 경로, 저장소, 특정 커밋, 특정spec URL 등으로 원하는 시점의 소스 코드를 정의할 수 있다.
 * target: 프로젝트의 특정 타겟에서만 반영되는 추가 설정. 주로 테스트 타겟의 경우에 테스트용 라이브러리 설정에 사용된다.
 * xcodeproj: 프로젝트 이름과 워크스페이스 이름이 다른 경우 설정 옵션.
-
 
